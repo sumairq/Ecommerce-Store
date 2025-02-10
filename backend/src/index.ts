@@ -1,6 +1,6 @@
 // src/index.ts
 import express, { Express, Request, Response, Router } from "express";
-import { getAllProducts } from "./controllers/productController";
+import { createProduct, getAllProducts } from "./controllers/productController";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -10,6 +10,7 @@ const router: Router = express.Router();
 const port = process.env.PORT || 3000;
 
 router.get("/", getAllProducts);
+router.post("/", createProduct);
 
 app.use(router);
 
